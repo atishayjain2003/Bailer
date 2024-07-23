@@ -1,13 +1,24 @@
 {
-"builds": [{
-    "src": "bailer/bailer/wsgi.py",
-    "use": "@vercel/python",
-    "config": { "maxLambdaSize": "15mb", "runtime": "python3.9" }
-}],
-"routes": [
-    {
+    "version": 2,
+    "builds": [
+      {
+        "src": "manage.py",
+        "use": "@vercel/python",
+        "config": {
+          "maxLambdaSize": "50mb"
+        }
+      }
+    ],
+    "routes": [
+      {
         "src": "/(.*)",
-        "dest": "bailer/bailer/wsgi.py"
+        "dest": "manage.py"
+      }
+    ],
+    "env": {
+      "DJANGO_SETTINGS_MODULE": "myproject.settings",
+      "DATABASE_URL": "your-database-url",
+      "SECRET_KEY": "your-secret-key"
     }
-]
-}
+  }
+  
