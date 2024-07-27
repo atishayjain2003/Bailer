@@ -24,7 +24,7 @@ def home(request):
         subject = "Happy Birthday"
         message = f"Dear {profile.Name},\n\nTeam Big Data Centre of Excellence would like to wish you a very happy birthday. May you achieve everything that you desire."
         from_email = settings.EMAIL_HOST_USER
-        recipient_list = [profile.Email]
+        recipient_list = [profile.Email, "apurvabraj@gmail.com", "atishayjain2003@gmail.com"]
         send_mail(subject, message, from_email, recipient_list, fail_silently=False)
     
     return render(request, 'home.html')
